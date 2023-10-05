@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html id="hh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kirby's History</title>
+  <style type="text/css">
+    body { background: black; color: white; font-family: 'Noto Sans KR', sans-serif; }
+
+    .a {position: absolute; transform: scale(1); animation-name: animation_scale; 
+      animation-duration: 6s; animation-delay: 1.5s;
+      animation-iteration-count: infinite; animation-fill-mode: both; }
+
+@keyframes animation_scale {
+  0% {transform: translateX(100px) translateY(100px) scale(0.25); opacity: 0;}
+  1% {opacity: 1;}
+  100% { transform: translateX(0px) translateY(0px) scale(1);}
+  }
+
+    #kkText { z-index: 9; position: absolute;
+      font-size: 1.5rem; text-align: center;
+      line-height: 1.5; background: black; padding: 20px;
+    }
+
+
+  </style>
+</head>
+<body id="body">
+<script>
+document.body.addEventListener('click', function() {
+   new Audio('k.mp3').play();
+});
+</script>
+
+  <div id="kkText"></div>
+  <script type="text/javascript">
+    window.alert("커비의 역사를 알려드리겠습니다.")
+    var a = ["1", "2", "3"];
+    for (var i = 0; i < 100; i++) {
+      var t = document.createElement("img");
+      t.src = a[randomBH(0, 2)] + ".png";
+      t.className = "a";
+      t.style.width = randomBH(10, 200) + "px";
+      t.style.height = "auto";
+      t.style.position = "fixed";
+      t.style.left = Math.random() * screen.availWidth + "px";
+      t.style.top = Math.random() * screen.availHeight + "px";
+      document.body.appendChild(t);
+    }
+
+
+    var kk = "당시 이름을 정하기 전에 미리 후보 리스트를 작성했고<br>'Kirby'라는 이름이 눈에 띄었는데,<br>변호사 존 커비의 이름과 똑같아서 재밌을 것 같다는 점과<br>귀여운 캐릭터와 맞지 않은 다소 억센 발음이라는 게<br>재밌을 것 같다는 점 때문에 'Kirby'로 최종 결정을 했다고 한다.<br>한국 명칭은 영어식 발음을 따른 커비.<br>이렇게 부르게 된 건 투니버스에서 정식방영한<br>애니메이션판을 '별의 커비'란 제목으로 들여오면서부터이다.<br>이래저래 투니버스가 본의 아니게 커비 정발 명칭의 틀을 잡았다.<br>그 전까지는 일본판 명칭을 따라 '카비', '까비' 등으로 불렸다.<br>한국에서 현대전자가 별의 커비 시리즈를 정발하지 않았고,<br>일본 대중문화 개방 이전의 시대였기 때문에<br>용산 전자상가에서 보따리상을 통해 일본판이 수입되었다.<br>당시 보따리상인들과 일본어를 알아보던 사람들이 일본어 표기를<br>그대로 발음해서 카비라고 불렀다.<br>이는 정식 발매 이전까지 한국 내 커비 보급에<br>지대한 기여를 한 커비 팬카페와 팬사이트인 '카비월드'의 영향이 크다.<br>그리고 무엇보다 더 신기한 건 북미판만 즐긴 유저 중에서도<br>이따금씩 커비가 아닌 카비라고 부르는 사람도 존재한다.<br>그 시절의 한국 유저들이 '커비'라는 이름에 대해 불만을 표하기도 했었다.<br>하지만 시간이 지나면서 '커비'라는 이름이 굳어져서<br>일본판 이름인 '카비'보다 '커비'의 사용 빈도가 높아지면서<br>지금은 자연스럽게 '커비'라는 이름으로 불리게 되었다.";
+    var kkArr = kk.split("<br>");
+
+    var kkText = document.getElementById("kkText");
+  kkText.style.position = "fixed";
+  kkText.style.left = "50%";
+  kkText.style.top = "50%";
+  kkText.style.transform = "translate(-50%, -50%)";
+  kkText.style.maxWidth = "100vw";
+
+  for (var i = 0; i < 100; i++) {
+    createImage();
+  }
+
+  var myTimer = setInterval(print, 500);
+  var s = 0;
+
+  function print() {
+    kkText.innerHTML += kkArr[s] + "<br>";
+    s++;
+    if (s == kkArr.length) {
+      clearInterval(myTimer);
+    }
+  }
+
+  function createImage() {
+  var t = document.createElement("img");
+  t.src = a[randomBH(0, 2)] + ".png";
+  t.className = "a";
+  t.style.width = randomBH(10, 150) + "px";
+  t.style.height = "auto";
+  t.style.position = "fixed";
+  t.style.left = Math.random() * window.innerWidth + "px";
+  t.style.top = Math.random() * window.innerHeight + "px";
+  t.style.animationDuration = Math.floor(Math.random() * (5 - 1 + 1)) + 1 + "s";
+  t.style.animationDelay = Math.random() * 5 + "s";
+  document.body.appendChild(t);
+  requestAnimationFrame(function () {
+    t.style.left = Math.random() * window.innerWidth + "px";
+    t.style.top = Math.random() * window.innerHeight + "px";
+  });
+}
+
+    function randomBH(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  </script>
+</body>
+
+</html>
